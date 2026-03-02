@@ -4,6 +4,3 @@ class Persona:
         self.apellido = apellido
         self.edad = edad
         self.equipo = equipo
-
-class Juego():
-    def __init__(self,nombre,puntos):
