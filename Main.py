@@ -8,3 +8,10 @@ para	conservar	la	competición.
 """
 
 if __name__ == '__main__':
+    from Persona import Persona
+    from Jugador import Jugador
+    from Coach import Coach
+    from Juego import Juego
+    persona1 = Persona('Antonio','García',20,'Squad')
+    persona1.mostrar_info()
+
