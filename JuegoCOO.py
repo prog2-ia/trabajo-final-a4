@@ -1,4 +1,5 @@
 from Juego import Juego
+# Herencia de juego
 class JuegoCOO(Juego):
     def __init__(self,nombre,reglas,puntos,nombreEq,jugadores):
         super().__init__(nombre,reglas,puntos)
