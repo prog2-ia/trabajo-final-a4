@@ -6,4 +6,3 @@ class Ranking(Persona):
 
     def mostrar_posicion(self):
         print(f'Este jugadir está en el puesto {self.puesto}')
-

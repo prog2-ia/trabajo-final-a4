@@ -1,8 +1,14 @@
-class Persona:
-    def __init__(self, nombre, apellido, edad,equipo):
+from abc import ABC, abstractmethod
+class Persona(ABC):
+    def __init__(self, ID,nombre, apellido, edad):
+        self.__ID = ID
         self.nombre = nombre
         self.apellido = apellido
         self.edad = edad
-        self.equipo = equipo
+    @abstractmethod
     def mostrar_info(self):
-        print(f'Nombre completo: {self.nombre} {self.apellido}, Edad: {self.edad} , Equipo: {self.equipo}')
+        pass
+        #print(f'Nombre completo: {self.nombre} {self.apellido}, Edad: {self.edad} , Equipo: {self.equipo}')
+    @property
+    def ID(self):
+        return self.__ID
