@@ -13,3 +13,4 @@ if __name__ == '__main__':
     from Juego import Juego
     persona1 = Jugador('Z207345G','Antonio','García',20,'Squad')
     persona1.mostrar_info()
+    coach1 = Coach('Z23895732F','Alberto','Fernandez',40,'Squad')
