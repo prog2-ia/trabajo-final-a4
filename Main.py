@@ -12,5 +12,13 @@ if __name__ == '__main__':
     from Coach import Coach
     from Juego import Juego
     persona1 = Jugador('Z207345G','Antonio','García',20,'Squad')
-    persona1.mostrar_info()
+    persona2 = Jugador('J2093423L','Martín','Echegaray',19,'Equipo',10)
     coach1 = Coach('Z23895732F','Alberto','Fernandez',40,'Squad')
+    juego1 = Juego('Catan','Domina y expande tu terrotorio!',20)
+    juego2 = Juego('Uno','Quedate sin cartas para ganar!',5)
+    persona1.mostrar_info()
+    persona1.anadir_puntos(20) # Ganó el catan
+    persona1.mostrar_info()
+    persona2.mostrar_info()
+    persona2.anadir_puntos(10) # Ganó dos unos
+    persona2.mostrar_info()

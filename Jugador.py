@@ -8,10 +8,10 @@ class Jugador(Persona):
         self.puntos = puntos if puntos is not None and puntos > 0 else 0
         self.juegos = {}
     def mostrar_info(self):
-        print(f'Nombre completo: {self.nombre} {self.apellido}, Edad: {self.edad} , Equipo: {self.equipo}')
+        print(f'Nombre completo: {self.nombre} {self.apellido}, Edad: {self.edad} , Equipo: {self.equipo}, Puntos: {self.puntos}')
 
-    def anadir_puntos(self,valor):
-        self.equipo += valor if valor > 0 else 0
+    def anadir_puntos(self,valor: int):
+        self.puntos += valor if valor > 0 else 0
 
     def registrar_juego(self, juego):
         if juego not in self.juegos:

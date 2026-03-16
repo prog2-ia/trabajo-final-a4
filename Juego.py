@@ -22,10 +22,10 @@ class Juego:
         self.registro_jugadores = {}
 
     def puntos_totales_jugador(self):
-        top_jugador = None
-        max_veces = 0
+        top_jugador = ''
+        puntos_max = 0
         for jugador, veces in self.registro_jugadores.items():
-            if veces > max_veces:
-                max_veces = veces
+            if veces > puntos_max:
+                puntos_max = veces
                 top_jugador = jugador
         return f'El jugador con más puntos de este juego es {top_jugador}'
