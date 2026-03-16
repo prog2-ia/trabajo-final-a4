@@ -20,5 +20,13 @@ if __name__ == '__main__':
     persona1.anadir_puntos(20) # Ganó el catan
     persona1.mostrar_info()
     persona2.mostrar_info()
-    persona2.anadir_puntos(10) # Ganó dos unos
+    persona2.anadir_puntos(10) # Ganó dos partidas del uno
     persona2.mostrar_info()
+    juego1.registrar_participacion(persona1)
+    juego2.registrar_participacion(persona2)
+    persona1.registrar_juego('Catan')
+    persona2.registrar_juego('Uno')
+    persona2.registrar_juego('Uno')
+    print(persona2.juegos)
+    print(persona1.juegos)
+    print(Juego.registro_jugadores)
