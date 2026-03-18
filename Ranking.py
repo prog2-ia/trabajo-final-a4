@@ -1,10 +1,9 @@
-from Persona import Persona
-class Ranking(Persona):
-    def __init__(self, nombre, apellido, equipo,puesto):
-        super().__init__(self,nombre,apellido,equipo)
+# --- archivo: Ranking.py ---
+class Ranking:
+    def __init__(self, persona, puesto):
+        self.persona = persona  # Aquí guardamos al objeto Jugador/Coach
         self.puesto = puesto
 
     def mostrar_posicion(self):
-        print(f'Este jugadir está en el puesto {self.puesto}')
-
-    #def mostrar_ranking(self):
+        # Accedemos a los datos de la persona a través del objeto guardado
+        print(f"El jugador {self.persona.nombre} está en el puesto {self.puesto}")
