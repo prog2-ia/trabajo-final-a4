@@ -1,7 +1,6 @@
 from JuegoCOO import JuegoCooperativo
 from JuegoOnline import JuegoOnline
 
-# Hereda de un "Juego" (vía JuegoCooperativo) y de "JuegoOnline"
 class TorneoOnline(JuegoCooperativo, JuegoOnline):
     def __init__(self, nombre, reglas, puntos, equipos, servidor, latencia):
         # Inicializamos ambos padres
