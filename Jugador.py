@@ -7,8 +7,24 @@ class Jugador(Persona):
         self.equipo = equipo
         self.puntos = puntos if puntos is not None and puntos > 0 else 0
         self.juegos = {}
+
+    # Metodo especial
+    def __str__(self):
+        return f"[Jugador #{self.id}] {self.nombre} {self.apellido} | Equipo: {self.equipo} | Puntos: {self.puntos}"
+    # Sobrecarga de operadores matemáticos
+    # Permite sumar los puntos de dos objetos Jugador
+    def __add__(self, otro):
+        if isinstance(otro, Jugador):
+            return self.puntos + otro.puntos
+        return self.puntos + otro
+    # Metodo especial (mayor que)
+    def __gt__(self, otro):
+        if isinstance(otro, Jugador):
+            return self.puntos > otro.puntos
+        return self.puntos > otro
+
     def mostrar_info(self):
-        print(f'Nombre completo: {self.nombre} {self.apellido}, Edad: {self.edad} , Equipo: {self.equipo}, Puntos: {self.puntos}')
+        print(self.__str__())
 
     def anadir_puntos(self,valor: int):
         self.puntos += valor if valor > 0 else 0
