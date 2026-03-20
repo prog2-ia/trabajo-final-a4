@@ -2,10 +2,9 @@ from Juego import Juego
 
 class JuegoCooperativo(Juego):
     def __init__(self, nombre, reglas, puntos, equipos: dict):
-        # equipos: un diccionario donde la clave es el nombre del equipo
-        # y el valor es una lista de objetos Jugador
+        # Equipos: un diccionario donde la clave es el nombre del equipo y el valor es una lista de objetos Jugador
         super().__init__(nombre, reglas, puntos)
-        self.__equipos = equipos  # Encapsulamiento (atributo privado)
+        self.__equipos = equipos
 
     def mostrar_info(self):
         super().mostrar_info()
