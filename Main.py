@@ -8,9 +8,9 @@ para	conservar	la	competición.
 """
 
 if __name__ == '__main__':
-    from Jugador import Jugador
-    from Coach import Coach
-    from Juego import Juego
+    from Clases.Jugador import Jugador
+    from Clases.Coach import Coach
+    from Clases.Juego import Juego
     persona1 = Jugador('Z207345G','Antonio','García',20,'Squad')
     persona2 = Jugador('J2093423L','Martín','Echegaray',19,'Equipo',10)
     coach1 = Coach('Z23895732F','Alberto','Fernandez',40,'Squad')

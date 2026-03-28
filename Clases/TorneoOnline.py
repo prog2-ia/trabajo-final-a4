@@ -1,5 +1,5 @@
-from JuegoCOO import JuegoCooperativo
-from JuegoOnline import JuegoOnline
+from Clases.JuegoCOO import JuegoCooperativo
+from Clases.JuegoOnline import JuegoOnline
 
 class TorneoOnline(JuegoCooperativo, JuegoOnline):
     def __init__(self, nombre, reglas, puntos, equipos, servidor, latencia):

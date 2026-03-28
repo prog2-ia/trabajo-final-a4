@@ -1,4 +1,4 @@
-from Juego import Juego
+from Clases.Juego import Juego
 
 class JuegoCooperativo(Juego):
     def __init__(self, nombre, reglas, puntos, equipos: dict):
