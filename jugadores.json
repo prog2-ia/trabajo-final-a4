@@ -1,0 +1,26 @@
+[
+  {"id": 1, "nombre": "Carlos", "apellido": "Lopez", "edad": 22, "equipo": "EquipoA", "puntos": 10},
+  {"id": 2, "nombre": "Ana", "apellido": "Garcia", "edad": 21, "equipo": "EquipoA", "puntos": 15},
+  {"id": 3, "nombre": "Luis", "apellido": "Martinez", "edad": 23, "equipo": "EquipoA", "puntos": 8},
+  {"id": 4, "nombre": "Marta", "apellido": "Sanchez", "edad": 20, "equipo": "EquipoA", "puntos": 12},
+
+  {"id": 5, "nombre": "Pedro", "apellido": "Ramirez", "edad": 24, "equipo": "EquipoB", "puntos": 20},
+  {"id": 6, "nombre": "Lucia", "apellido": "Fernandez", "edad": 22, "equipo": "EquipoB", "puntos": 18},
+  {"id": 7, "nombre": "Jorge", "apellido": "Gomez", "edad": 25, "equipo": "EquipoB", "puntos": 5},
+  {"id": 8, "nombre": "Elena", "apellido": "Diaz", "edad": 23, "equipo": "EquipoB", "puntos": 14},
+
+  {"id": 9, "nombre": "Raul", "apellido": "Moreno", "edad": 21, "equipo": "EquipoC", "puntos": 9},
+  {"id": 10, "nombre": "Sara", "apellido": "Alonso", "edad": 22, "equipo": "EquipoC", "puntos": 11},
+  {"id": 11, "nombre": "David", "apellido": "Navarro", "edad": 24, "equipo": "EquipoC", "puntos": 16},
+  {"id": 12, "nombre": "Paula", "apellido": "Ruiz", "edad": 20, "equipo": "EquipoC", "puntos": 7},
+
+  {"id": 13, "nombre": "Hugo", "apellido": "Torres", "edad": 23, "equipo": "EquipoD", "puntos": 13},
+  {"id": 14, "nombre": "Carmen", "apellido": "Vega", "edad": 21, "equipo": "EquipoD", "puntos": 6},
+  {"id": 15, "nombre": "Adrian", "apellido": "Castro", "edad": 25, "equipo": "EquipoD", "puntos": 19},
+  {"id": 16, "nombre": "Nuria", "apellido": "Ortega", "edad": 22, "equipo": "EquipoD", "puntos": 17},
+
+  {"id": 17, "nombre": "Ivan", "apellido": "Rubio", "edad": 24, "equipo": "EquipoE", "puntos": 10},
+  {"id": 18, "nombre": "Clara", "apellido": "Molina", "edad": 20, "equipo": "EquipoE", "puntos": 8},
+  {"id": 19, "nombre": "Sergio", "apellido": "Delgado", "edad": 23, "equipo": "EquipoE", "puntos": 21},
+  {"id": 20, "nombre": "Laura", "apellido": "Herrera", "edad": 21, "equipo": "EquipoE", "puntos": 12}
+]

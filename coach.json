@@ -1,0 +1,7 @@
+[
+  {"id": 101, "nombre": "Alberto", "apellido": "Ruiz", "edad": 45, "equipo": "EquipoA"},
+  {"id": 102, "nombre": "Beatriz", "apellido": "Navarro", "edad": 50, "equipo": "EquipoB"},
+  {"id": 103, "nombre": "Carlos", "apellido": "Mendez", "edad": 42, "equipo": "EquipoC"},
+  {"id": 104, "nombre": "Diana", "apellido": "Serrano", "edad": 47, "equipo": "EquipoD"},
+  {"id": 105, "nombre": "Eduardo", "apellido": "Vidal", "edad": 53, "equipo": "EquipoE"}
+]
