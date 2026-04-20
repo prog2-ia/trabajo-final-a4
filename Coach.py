@@ -1,15 +1,15 @@
 from Persona import Persona
 # Herencia de Persona
 class Coach(Persona):
-    def __init__(self,id, nombre, apellido, edad,equipo):
+    def __init__(self,id: int, nombre: str, apellido: str, edad: int,equipo: str | int):
         super().__init__(id,nombre,apellido,edad)
         self.equipo = equipo
         self.__juegos_entrenados = {}
 
-    def mostrar_info(self):
+    def mostrar_info(self) -> str:
         print(f'Nombre completo: {self.nombre} {self.apellido}, Edad: {self.edad} , Equipo: {self.equipo}')
 
-    def registrar_juego_entrenado(self, juego):
+    def registrar_juego_entrenado(self, juego: str):
         if juego not in self.__juegos_entrenados:
             self.__juegos_entrenados[juego] = 1
         else:
