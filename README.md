@@ -156,9 +156,9 @@ classDiagram
 
 | Juego | Modo vs máquina | Decisión del jugador |
 |---|---|---|
-| Piedra Papel Tijera |  | Elegir piedra / papel / tijera |
-| Tirar Dados |  | Automático (azar) |
-| UNO |  | Automático (IA simple) |
+| Piedra Papel Tijera | Si | Elegir piedra / papel / tijera |
+| Tirar Dados | Si | Automático (azar) |
+| UNO | No | Automático (IA simple) |
 
 ---
 
