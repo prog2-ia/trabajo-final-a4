@@ -5,10 +5,7 @@ class Persona(ABC):
         self.nombre = nombre
         self.apellido = apellido
         self.edad = edad
-    @abstractmethod
-    def mostrar_info(self):
-        pass
-        #print(f'Nombre completo: {self.nombre} {self.apellido}, Edad: {self.edad} , Equipo: {self.equipo}')
+
     @property
     def id(self):
         return self.__id
