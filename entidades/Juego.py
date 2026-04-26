@@ -1,31 +1,49 @@
-class Juego:
-    registro_jugadores = {}
-    def __init__(self, nombre, reglas, puntos):
+from abc import ABC, abstractmethod
+
+
+class Juego(ABC):
+    """Clase abstracta que representa un juego de mesa."""
+
+    def __init__(self, nombre: str, min_jugadores: int, max_jugadores: int):
         self.nombre = nombre
-        self.reglas = reglas
-        self.puntos = puntos
+        self._min_jugadores = min_jugadores
+        self._max_jugadores = max_jugadores
+        self._historial = []  # lista de tuplas (ganador, perdedor)
 
+    # Getters
+    def get_min_jugadores(self):
+        return self._min_jugadores
 
-    def mostrar_info(self):
-        print('Nombre del juego: ', self.nombre)
-        print('Reglas del juego: ', self.reglas)
-        print(f'Este juego da {self.puntos} puntos\n !Suerte¡')
+    def get_max_jugadores(self):
+        return self._max_jugadores
 
-    def registrar_participacion(self,persona):
-        nombre = persona.nombre
-        if nombre not in Juego.registro_jugadores:
-            Juego.registro_jugadores[nombre] = 1
-        else:
-            Juego.registro_jugadores[nombre] += 1
+    def get_historial(self):
+        return list(self._historial)
 
-    def resetear_registro(self):
-        Juego.registro_jugadores = {}
+    # Métodos abstractos
+    @abstractmethod
+    def jugar(self, jugador1, jugador2):
+        """
+        Ejecuta una partida entre jugador1 y jugador2.
+        Devuelve el objeto Jugador ganador (o None en caso de empate).
+        Recibe las decisiones ya tomadas como parámetros, sin usar input().
+        """
+        pass
 
-    def puntos_totales_jugador(self):
-        top_jugador = ''
-        puntos_max = 0
-        for jugador, veces in Juego.registro_jugadores.items():
-            if veces > puntos_max:
-                puntos_max = veces
-                top_jugador = jugador
-        return f'El jugador con más puntos de este juego es {top_jugador}'
+    @abstractmethod
+    def es_valida_decision(self, decision) -> bool:
+        """Comprueba si una decisión/movimiento es válido para este juego."""
+        pass
+
+    @abstractmethod
+    def obtener_decisiones_posibles(self) -> list:
+        """Devuelve la lista de decisiones posibles para mostrar en el menú."""
+        pass
+
+    # ── Métodos comunes ───────────────────────────────────────
+    def registrar_resultado(self, ganador, perdedor):
+        """Guarda el resultado en el historial interno del juego."""
+        self._historial.append((ganador, perdedor))
+
+    def __str__(self):
+        return f"Juego: {self._nombre} ({self._min_jugadores}-{self._max_jugadores} jugadores)"
