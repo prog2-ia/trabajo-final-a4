@@ -25,14 +25,13 @@ class Juego(ABC):
     def jugar(self, jugador1, jugador2):
         """
         Ejecuta una partida entre jugador1 y jugador2.
-        Devuelve el objeto Jugador ganador (o None en caso de empate).
-        Recibe las decisiones ya tomadas como parámetros, sin usar input().
+        Devuelve el objeto Jugador ganador (o none en caso de empate).
         """
         pass
 
     @abstractmethod
     def es_valida_decision(self, decision) -> bool:
-        """Comprueba si una decisión/movimiento es válido para este juego."""
+        """Comprueba si una decisión/movimiento es válida para este juego."""
         pass
 
     @abstractmethod
