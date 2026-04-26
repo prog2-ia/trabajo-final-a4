@@ -1,5 +1,5 @@
 import random
-from juego import Juego
+from Juego import Juego
 
 
 class PiedraPapelTijera(Juego):
