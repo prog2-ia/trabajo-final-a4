@@ -1,4 +1,4 @@
-from persona import Persona
+from Persona import Persona
 
 class Jugador(Persona):
     def __init__(self, id, nombre, apellido, edad, alias):
