@@ -49,12 +49,12 @@ class PiedraPapelTijera(Juego):
         ganador = self._resolver(jugador1, jugador2, d1, d2)
 
         if ganador is None:
-            print("  >> ¡EMPATE!")
+            print("¡EMPATE!")
             jugador1.sumar_empate()
             jugador2.sumar_empate()
         else:
             perdedor = jugador2 if ganador is jugador1 else jugador1
-            print(f"  >> ¡{ganador.get_alias()} GANA la ronda!")
+            print(f" ¡{ganador.get_alias()} GANA la ronda!")
             ganador.sumar_victoria()
             perdedor.sumar_derrota()
             self.registrar_resultado(ganador, perdedor)
@@ -63,7 +63,7 @@ class PiedraPapelTijera(Juego):
 
     # Lógica interna
     def _resolver(self, jugador1, jugador2, d1: str, d2: str):
-        """Determina quién gana según las decisiones. Devuelve None en empate."""
+        # Determina quién gana según las decisiones. Devuelve None en empate.
         if d1 == d2:
             return None
         if self._GANA_A[d1] == d2:
@@ -71,7 +71,7 @@ class PiedraPapelTijera(Juego):
         return jugador2
 
     def decision_maquina(self) -> str:
-        """Genera una decisión aleatoria para la máquina."""
+        # Genera una decisión aleatoria para la máquina.
         return random.choice(self.DECISIONES)
 
     def __str__(self):

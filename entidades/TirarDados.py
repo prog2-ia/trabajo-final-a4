@@ -1,5 +1,5 @@
 import random
-from juego import Juego
+from Juego import Juego
 
 
 class TirarDados(Juego):
@@ -37,14 +37,14 @@ class TirarDados(Juego):
         suma2 = sum(resultado_j2)
 
         if suma1 == suma2:
-            print("  >> ¡EMPATE!")
+            print("¡EMPATE!")
             jugador1.sumar_empate()
             jugador2.sumar_empate()
             return None
 
         ganador = jugador1 if suma1 > suma2 else jugador2
         perdedor = jugador2 if ganador is jugador1 else jugador1
-        print(f"  >> ¡{ganador.get_alias()} GANA con {max(suma1, suma2)} puntos!")
+        print(f"¡{ganador.get_alias()} GANA con {max(suma1, suma2)} puntos!")
         ganador.sumar_victoria()
         perdedor.sumar_derrota()
         self.registrar_resultado(ganador, perdedor)
@@ -52,7 +52,7 @@ class TirarDados(Juego):
 
     #  Lógica interna
     def _lanzar(self) -> list:
-        """Lanza los dados y devuelve una lista con cada resultado."""
+        # Lanza los dados y devuelve una lista con cada resultado.
         return [random.randint(1, self._caras) for _ in range(self._num_dados)]
 
     def get_num_dados(self):

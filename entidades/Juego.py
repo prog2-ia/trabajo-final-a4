@@ -1,8 +1,6 @@
 from abc import ABC, abstractmethod
-
-
 class Juego(ABC):
-    """Clase abstracta que representa un juego de mesa."""
+    # Clase abstracta que representa un juego de mesa.
 
     def __init__(self, nombre: str, min_jugadores: int, max_jugadores: int):
         self.nombre = nombre
@@ -31,17 +29,17 @@ class Juego(ABC):
 
     @abstractmethod
     def es_valida_decision(self, decision) -> bool:
-        """Comprueba si una decisión/movimiento es válida para este juego."""
+        #Comprueba si una decisión/movimiento es válida para este juego.
         pass
 
     @abstractmethod
     def obtener_decisiones_posibles(self) -> list:
-        """Devuelve la lista de decisiones posibles para mostrar en el menú."""
+        #Devuelve la lista de decisiones posibles para mostrar en el menú.
         pass
 
-    # ── Métodos comunes ───────────────────────────────────────
+    # Métodos comunes
     def registrar_resultado(self, ganador, perdedor):
-        """Guarda el resultado en el historial interno del juego."""
+        #Guarda el resultado en el historial interno del juego.
         self._historial.append((ganador, perdedor))
 
     def __str__(self):

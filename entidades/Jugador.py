@@ -9,7 +9,6 @@ class Jugador(Persona):
         self._partidas_ganadas = 0
         self._partidas_perdidas = 0
         self._es_maquina = False
-
     # Getters
     def get_alias(self):
         return self._alias
@@ -80,9 +79,6 @@ class JugadorMaquina(Jugador):
     def __init__(self):
         super().__init__(0, "Máquina", "IA", 0, "CPU")
         self._es_maquina = True
-
-    def mostrar_info(self):
-        print("[CPU] Jugador controlado por la máquina")
 
     def __str__(self):
         return f"[CPU] {self._alias}"

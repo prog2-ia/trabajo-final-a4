@@ -1,4 +1,3 @@
-
 class JuegoOnline:
     def __init__(self, servidor: str, latencia_max: int):
         self.__servidor = servidor  # Encapsulamiento

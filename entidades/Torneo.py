@@ -1,4 +1,3 @@
-
 class Torneo:
     def __init__(self, tipo,organizador,juegos,pais):
         self.tipo = tipo

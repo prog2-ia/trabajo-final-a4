@@ -2,7 +2,7 @@ from Jugador import Jugador
 from Persona import Persona
 # Herencia de Persona
 class Coach(Persona):
-    """Entrenador de un equipo."""
+    # Entrenador de un equipo.
 
     def __init__(self,id, nombre: str, apellido: str, edad: int, especialidad: str):
         super().__init__(id, nombre, apellido, edad)
