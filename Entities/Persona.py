@@ -31,3 +31,19 @@ class Persona(ABC):
 
     def __str__(self) -> str:
         return f"{self.obtener_rol()} | {self.nombre} (ID: {self.__id})"
+
+    def to_dict(self) -> dict:
+        """Serializa los datos comunes de la persona a diccionario."""
+        return {
+            "id": self.id,
+            "nombre": self.nombre,
+            "edad": self.edad
+        }
+
+    @classmethod
+    def from_dict(cls, datos: dict) -> "Persona":
+        """
+        Método de ayuda para subclases. Al ser clase abstracta,
+        este método se utiliza desde sus clases hijas (Jugador, Árbitro).
+        """
+        pass
