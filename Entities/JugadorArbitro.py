@@ -1,6 +1,6 @@
-from Jugador import Jugador
-from Arbitro import Arbitro
-from Persona import Persona
+from Entities.Jugador import Jugador
+from Entities.Arbitro import Arbitro
+from Entities.Persona import Persona
 
 class JugadorArbitro(Jugador, Arbitro):
     """
@@ -31,3 +31,30 @@ class JugadorArbitro(Jugador, Arbitro):
 
     def obtener_rol(self) -> str:
         return "Jugador/Árbitro"
+
+    def to_dict(self) -> dict:
+        """Serializa el jugador/árbitro a diccionario."""
+        return {
+            "nombre": self.nombre,
+            "edad": self.edad,
+            "certificacion": self.certificacion,
+            "partidas_arbitradas": self.partidas_arbitradas,
+            "partidas_jugadas_jugador": self.partidas_jugadas,
+            "victorias": self.victorias,
+            "puntuacion_total": self._Jugador__puntuacion_total,
+        }
+
+    @classmethod
+    def from_dict(cls, datos: dict) -> "JugadorArbitro":
+        """Deserializa un diccionario a objeto JugadorArbitro."""
+        ja = cls(
+            nombre=datos["nombre"],
+            edad=datos["edad"],
+            certificacion=datos["certificacion"]
+        )
+        ja.partidas_arbitradas = datos["partidas_arbitradas"]
+        ja.partidas_jugadas = datos["partidas_jugadas_jugador"]
+        ja.victorias = datos["victorias"]
+        ja._Jugador__puntuacion_total = datos["puntuacion_total"]
+        return ja
+

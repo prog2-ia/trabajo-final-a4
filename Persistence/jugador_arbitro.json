@@ -1,0 +1,11 @@
+[
+  {
+    "nombre": "Laura",
+    "edad": 28,
+    "certificacion": "Nivel Pro",
+    "partidas_arbitradas": 12,
+    "partidas_jugadas_jugador": 10,
+    "victorias": 4,
+    "puntuacion_total": 85.0
+  }
+]

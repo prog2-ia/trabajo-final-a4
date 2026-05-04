@@ -1,5 +1,4 @@
-from Persona import Persona
-from Jugador import Jugador
+from Entities.Persona import Persona
 
 
 class Arbitro(Persona):
@@ -22,7 +21,7 @@ class Arbitro(Persona):
         # Simulación: cualquier movimiento no vacío se acepta
         return True
 
-    def declarar_ganador(self, jugadores: list[Jugador]) -> Jugador:
+    def declarar_ganador(self, jugadores: list) -> 'Jugador':
         """
         Declara al ganador entre una lista de jugadores según su puntuación.
 
@@ -39,3 +38,24 @@ class Arbitro(Persona):
 
     def obtener_rol(self) -> str:
         return "Árbitro"
+
+    def to_dict(self) -> dict:
+        """Serializa el árbitro a diccionario."""
+        return {
+            "nombre": self.nombre,
+            "edad": self.edad,
+            "certificacion": self.certificacion,
+            "partidas_arbitradas": self.partidas_arbitradas,
+        }
+
+    @classmethod
+    def from_dict(cls, datos: dict) -> "Arbitro":
+        """Deserializa un diccionario a objeto Arbitro."""
+        arbitro = cls(
+            nombre=datos["nombre"],
+            edad=datos["edad"],
+            certificacion=datos["certificacion"]
+        )
+        # Restauramos el atributo que no va en el constructor
+        arbitro.partidas_arbitradas = datos["partidas_arbitradas"]
+        return arbitro

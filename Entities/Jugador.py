@@ -1,4 +1,4 @@
-from Persona import Persona
+from Entities.Persona import Persona
 
 class Jugador(Persona):
 
@@ -35,8 +35,31 @@ class Jugador(Persona):
     def obtener_rol(self) -> str:
         return "Jugador"
 
-    def __ge__(self, otro : Jugador) -> bool:
+    def __ge__(self, otro : "Jugador") -> bool:
         return self.__puntuacion_total >= otro.puntuacion_total
+
+    def to_dict(self) -> dict:
+        """Serializa el jugador a diccionario."""
+        return {
+            "nombre": self.nombre,
+            "edad": self.edad,
+            "partidas_jugadas": self.partidas_jugadas,
+            "victorias": self.victorias,
+            "puntuacion_total": self._Jugador__puntuacion_total,  # name mangling
+        }
+
+    @classmethod
+    def from_dict(cls, datos: dict) -> "Jugador":
+        """Deserializa un diccionario a objeto Jugador."""
+        jugador = cls(
+            nombre=datos["nombre"],
+            edad=datos["edad"]
+        )
+        jugador.partidas_jugadas = datos["partidas_jugadas"]
+        jugador.victorias = datos["victorias"]
+        jugador._Jugador__puntuacion_total = datos["puntuacion_total"]
+        return jugador
+
 
 
 
