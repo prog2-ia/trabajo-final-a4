@@ -1,85 +1,52 @@
 from Persona import Persona
 
+
 class Jugador(Persona):
-    def __init__(self, id, nombre, apellido, edad, alias):
-        super().__init__(id, nombre, apellido, edad)
-        self._alias = alias
-        self._puntos = 0
-        self._partidas_jugadas = 0
-        self._partidas_ganadas = 0
-        self._partidas_perdidas = 0
-        self._es_maquina = False
-    # Getters
-    def get_alias(self):
-        return self._alias
+    """
+    Representa a un jugador inscrito en la liga.
+    Lleva el seguimiento de sus estadísticas de juego.
+    """
 
-    def get_puntos(self):
-        return self._puntos
+    def __init__(self, nombre: str, edad: int) -> None:
+        super().__init__(nombre, edad)
+        self.partidas_jugadas: int = 0
+        self.victorias: int = 0
+        # Atributo privado: la puntuación se controla internamente
+        self.__puntuacion_total: float = 0.0
 
-    def get_partidas_jugadas(self):
-        return self._partidas_jugadas
+    @property
+    def puntuacion_total(self) -> float:
+        """Getter de la puntuación acumulada (solo lectura directa)."""
+        return self.__puntuacion_total
 
-    def get_partidas_ganadas(self):
-        return self._partidas_ganadas
+    @property
+    def porcentaje_victorias(self) -> float:
+        """Calcula el % de victorias sobre partidas jugadas."""
+        if self.partidas_jugadas == 0:
+            return 0.0
+        return (self.victorias / self.partidas_jugadas) * 100
 
-    def get_partidas_perdidas(self):
-        return self._partidas_perdidas
+    def actualizar_estadisticas(self, puntos: float, victoria: bool) -> None:
+        """
+        Registra el resultado de una partida finalizada.
 
-    def es_maquina(self):
-        return self._es_maquina
+        :param puntos: Puntos obtenidos en la partida (deben ser >= 0)
+        :param victoria: True si el jugador ganó la partida
+        """
+        if puntos < 0:
+            raise ValueError("Los puntos no pueden ser negativos.")
+        self.__puntuacion_total += puntos
+        self.partidas_jugadas += 1
+        if victoria:
+            self.victorias += 1
 
-    def get_nombre_completo(self):
-        return f"{self.nombre} {self.apellido}"
+    def presentarse(self) -> str:
+        return (f"Soy {self.nombre}, jugador con {self.partidas_jugadas} "
+                f"partidas y {self.victorias} victorias.")
 
-    # Actualización de estadísticas
-    def sumar_victoria(self, puntos: int = 3):
-        self._partidas_ganadas += 1
-        self._partidas_jugadas += 1
-        self._puntos += puntos
+    def obtener_rol(self) -> str:
+        return "Jugador"
 
-    def sumar_derrota(self):
-        self._partidas_perdidas += 1
-        self._partidas_jugadas += 1
 
-    def sumar_empate(self, puntos: int = 1):
-        self._partidas_jugadas += 1
-        self._puntos += puntos
 
-    def __str__(self):
-        return (
-            f"{self._alias} | {self.get_nombre_completo()} | "
-            f"Puntos: {self._puntos} | "
-            f"Partidas Jugadas: {self._partidas_jugadas} Partidas Ganadas: {self._partidas_ganadas} Partidas Perdidas: {self._partidas_perdidas}"
-        )
-    # Permite sumar los puntos de dos jugadores: jugador1 + jugador2
-    def __add__(self, otro):
-        if isinstance(otro, Jugador):
-            return self._puntos + otro._puntos
-        return self._puntos + otro
-
-    # Permite comparar jugadores por puntos: jugador1 > jugador2
-    def __gt__(self, otro):
-        if isinstance(otro, Jugador):
-            return self._puntos > otro._puntos
-        return self._puntos > otro
-
-    # Permite comparar jugadores por puntos: jugador1 < jugador2
-    def __lt__(self, otro):
-        if isinstance(otro, Jugador):
-            return self._puntos < otro._puntos
-        return self._puntos < otro
-
-    # Permite comparar jugadores por puntos: jugador1 == jugador2
-    def __eq__(self, otro):
-        if isinstance(otro, Jugador):
-            return self._puntos == otro._puntos
-        return self._puntos == otro
-
-class JugadorMaquina(Jugador):
-    def __init__(self):
-        super().__init__(0, "Máquina", "IA", 0, "CPU")
-        self._es_maquina = True
-
-    def __str__(self):
-        return f"[CPU] {self._alias}"
 

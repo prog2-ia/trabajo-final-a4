@@ -1,7 +1,5 @@
 from abc import ABC, abstractmethod
 import random
-
-
 class Persona(ABC):
     """
     Clase abstracta que representa a cualquier persona del sistema.
