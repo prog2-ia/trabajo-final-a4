@@ -1,13 +1,8 @@
 from Arbitro import Arbitro
 from Jugador import Jugador
-
+from typing import Union
 
 class Partida:
-    """
-    Representa una partida concreta dentro de la liga.
-    Gestiona jugadores, árbitro, estado y resultado.
-    """
-
     # Estados posibles de una partida
     ESTADOS: tuple[str, ...] = ("pendiente", "en_curso", "finalizada")
 
@@ -16,11 +11,10 @@ class Partida:
         self.arbitro: Arbitro = arbitro
         self.__estado: str = "pendiente"   # Privado: se controla con métodos
         self.jugadores: list[Jugador] = []
-        self.ganador: Jugador | None = None
+        self.ganador: Union[Jugador, None] = None
 
     @property
     def estado(self) -> str:
-        """Estado actual de la partida (solo lectura)."""
         return self.__estado
 
     def añadir_jugador(self, jugador: Jugador) -> None:

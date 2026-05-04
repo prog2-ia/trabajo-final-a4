@@ -1,11 +1,6 @@
 from Persona import Persona
 
-
 class Jugador(Persona):
-    """
-    Representa a un jugador inscrito en la liga.
-    Lleva el seguimiento de sus estadísticas de juego.
-    """
 
     def __init__(self, nombre: str, edad: int) -> None:
         super().__init__(nombre, edad)
@@ -16,7 +11,6 @@ class Jugador(Persona):
 
     @property
     def puntuacion_total(self) -> float:
-        """Getter de la puntuación acumulada (solo lectura directa)."""
         return self.__puntuacion_total
 
     @property
@@ -27,12 +21,6 @@ class Jugador(Persona):
         return (self.victorias / self.partidas_jugadas) * 100
 
     def actualizar_estadisticas(self, puntos: float, victoria: bool) -> None:
-        """
-        Registra el resultado de una partida finalizada.
-
-        :param puntos: Puntos obtenidos en la partida (deben ser >= 0)
-        :param victoria: True si el jugador ganó la partida
-        """
         if puntos < 0:
             raise ValueError("Los puntos no pueden ser negativos.")
         self.__puntuacion_total += puntos
@@ -46,6 +34,9 @@ class Jugador(Persona):
 
     def obtener_rol(self) -> str:
         return "Jugador"
+
+    def __ge__(self, otro : Jugador) -> bool:
+        return self.__puntuacion_total >= otro.puntuacion_total
 
 
 

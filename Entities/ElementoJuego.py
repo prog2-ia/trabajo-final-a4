@@ -2,23 +2,18 @@ from abc import ABC, abstractmethod
 
 
 class ElementoJuego(ABC):
-    """
-    Clase abstracta que representa cualquier componente físico de un juego
-    (dados, barajas, fichas...). Define la interfaz común para todos ellos.
-    """
-
     def __init__(self, nombre: str) -> None:
         self.nombre: str = nombre
         self.en_uso: bool = False  # Indica si el elemento está en una partida activa
 
     @abstractmethod
     def reiniciar(self) -> None:
-        """Restaura el elemento a su estado inicial."""
+        #Restaura el elemento a su estado inicial.
         pass
 
     @abstractmethod
     def obtener_estado(self) -> str:
-        """Devuelve una descripción del estado actual del elemento."""
+        # Devuelve una descripción del estado actual del elemento.
         pass
 
     def __str__(self) -> str:

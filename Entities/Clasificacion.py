@@ -1,5 +1,5 @@
 from Jugador import Jugador
-
+from typing import Union
 
 class Clasificacion:
     """
@@ -30,8 +30,8 @@ class Clasificacion:
                            reverse=True)
         return [(pos + 1, jugador) for pos, jugador in enumerate(ordenados)]
 
-    def obtener_lider(self) -> Jugador | None:
-        """Devuelve el jugador con mayor puntuación o None si está vacía."""
+    def obtener_lider(self) -> Union[Jugador, None]:
+        # Devuelve el jugador con mayor puntuación o None si está vacía.
         if not self.__tabla:
             return None
         return max(self.__tabla, key=lambda j: j.puntuacion_total)

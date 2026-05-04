@@ -1,6 +1,6 @@
-from entidades.Jugador import Jugador, JugadorMaquina
-from entidades.PiedraPapelTijera import PiedraPapelTijera
-from entidades.TirarDados import TirarDados
+from Entities.Jugador import Jugador, JugadorMaquina
+from Entities.Dado import PiedraPapelTijera
+from Entities.Baraja import TirarDados
 
 
 class Menu:
