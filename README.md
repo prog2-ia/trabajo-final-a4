@@ -1,29 +1,213 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/09uckVan)
 
-# Enunciado del proyecto :
+#  Liga de Juegos de Mesa
 
-*Aplicación para organizar una liga con modalidades heredadas que definen reglas y puntuaciones específicas. La sobrecarga de operadores facilita combinar clasificaciones, aplicar desempates y comparar el rendimiento de los jugadores de forma directa. Se controlarán excepciones relacionadas con partidas inválidas, resultados contradictorios o inscripciones duplicadas. Además, se mantendrán actas y tablas en formato de texto, junto con una persistencia binaria completa mediante pickle para conservar la información de la competición.*
+Proyecto de **Programación Orientada a Objetos** en Python para gestionar una liga de juegos de mesa. Permite inscribir jugadores, registrar árbitros, programar partidas y llevar una clasificación actualizada.
 
-En este proyecto podremos gestionar un torneo de juegos de mesa simulando una liga, donde se podrán realizar de manera presencial o online.
+---
 
-Dentro del código encontramos 10 clases:
+##  Estructura del proyecto
 
-- Persona: clase abstracta de la que heredan clases cómo coach, jugador o equipo
+```
+liga_juegos_mesa/
+├── __init__.py
+├── persona.py
+├── elemento_juego.py
+├── jugador.py
+├── arbitro.py
+├── dado.py
+├── baraja.py
+├── jugador_arbitro.py
+├── partida.py
+├── clasificacion.py
+└── liga.py
+```
 
-- Coach: clase que hace referencia a los entrenadores de cada equipo. Mantiene cuenta de los juegos a los cuales ha entrenado dentro de los jugadores de su equipo
+---
 
-- Jugador: integrantes de equipo, aquellos que pueden jugar en los torneos y ganar puntos
+##  Clases
 
-- Equipo: constituido por jugadores y coach aunque no es obligatorio el último
+| Archivo | Clase | Tipo |
+|---|---|---|
+| `persona.py` | `Persona` | Abstracta — base de `Jugador` y `Arbitro` |
+| `elemento_juego.py` | `ElementoJuego` | Abstracta — base de `Dado` y `Baraja` |
+| `jugador.py` | `Jugador` | Hereda de `Persona` |
+| `arbitro.py` | `Arbitro` | Hereda de `Persona` |
+| `dado.py` | `Dado` | Hereda de `ElementoJuego` |
+| `baraja.py` | `Baraja` | Hereda de `ElementoJuego` |
+| `jugador_arbitro.py` | `JugadorArbitro` | **Herencia múltiple** — `Jugador` + `Arbitro` |
+| `partida.py` | `Partida` | Gestión de una partida concreta |
+| `clasificacion.py` | `Clasificacion` | Ranking de jugadores |
+| `liga.py` | `Liga` | Núcleo del sistema |
 
-- Juego: define la estructura de cada juego. Puede registrar la participación y resetearla.
+---
 
-- JuegoCOO: hereda de juego, se utiliza para cuando se trata de juegos con más de un integrante por equipo
+##  Diagrama de relaciones
 
-- JuegoOnline: Para cuando el juego no se realiza en un entorno físico
+> Ver archivo [`diagrama_clases.mermaid`](diagrama_clases.mermaid)
 
-- Torneo: clase que define el conjunto de juegos en el cual los jugadores podrán inscribirse
+```mermaid
+---
+title: Liga de Juegos de Mesa — Diagrama de Clases
+---
+classDiagram
+    direction TB
 
-- TorneoOnline: Hereda de juegoCooperativo y JuegoOnline, para los torneos realizados en línea
+    class Persona {
+        <<abstract>>
+        -int __id
+        +str nombre
+        +int edad
+        +id() int
+        +presentarse()* str
+        +obtener_rol()* str
+    }
 
-- Ranking: registro de jugadores y su posición en el podio
+    class ElementoJuego {
+        <<abstract>>
+        +str nombre
+        +bool en_uso
+        +reiniciar()* None
+        +obtener_estado()* str
+    }
+
+    class Jugador {
+        +int partidas_jugadas
+        +int victorias
+        -float __puntuacion_total
+        +puntuacion_total() float
+        +porcentaje_victorias() float
+        +actualizar_estadisticas(puntos, victoria) None
+        +presentarse() str
+        +obtener_rol() str
+    }
+
+    class Arbitro {
+        +str certificacion
+        +int partidas_arbitradas
+        +validar_movimiento(movimiento) bool
+        +declarar_ganador(jugadores) Jugador
+        +presentarse() str
+        +obtener_rol() str
+    }
+
+    class JugadorArbitro {
+        +presentarse() str
+        +obtener_rol() str
+    }
+
+    class Dado {
+        +int num_caras
+        -int __valor_actual
+        +valor_actual() int
+        +lanzar() int
+        +reiniciar() None
+        +obtener_estado() str
+    }
+
+    class Baraja {
+        -list __cartas
+        -list __descartadas
+        +cartas_restantes() int
+        +barajar() None
+        +robar_carta() str
+        +reiniciar() None
+        +obtener_estado() str
+    }
+
+    class Partida {
+        +str juego
+        +Arbitro arbitro
+        +list jugadores
+        +Jugador ganador
+        -str __estado
+        +estado() str
+        +añadir_jugador(jugador) None
+        +iniciar() None
+        +finalizar(puntuaciones) None
+    }
+
+    class Clasificacion {
+        -list __tabla
+        +registrar_jugador(jugador) None
+        +obtener_ranking() list
+        +obtener_lider() Jugador
+    }
+
+    class Liga {
+        +str nombre
+        +int temporada
+        +list jugadores
+        +list arbitros
+        +list partidas
+        +Clasificacion clasificacion
+        +inscribir_jugador(jugador) None
+        +registrar_arbitro(arbitro) None
+        +programar_partida(juego, arbitro) Partida
+        +obtener_clasificacion() list
+        +resumen() str
+    }
+
+    Persona <|-- Jugador
+    Persona <|-- Arbitro
+
+    Jugador <|-- JugadorArbitro
+    Arbitro <|-- JugadorArbitro
+
+    ElementoJuego <|-- Dado
+    ElementoJuego <|-- Baraja
+
+    Liga "1" o-- "0..*" Jugador : inscribe
+    Liga "1" o-- "0..*" Arbitro : registra
+    Liga "1" o-- "0..*" Partida : programa
+    Liga "1" *-- "1" Clasificacion : contiene
+
+    Partida "1" o-- "2..*" Jugador : participan
+    Partida "1" o-- "1" Arbitro : supervisa
+
+    Clasificacion "1" o-- "0..*" Jugador : rankea
+```
+
+---
+
+##  Requisitos
+
+- Python 3.9
+- Sin dependencias externas
+
+---
+
+##  Uso rápido
+
+```python
+from liga_juegos_mesa import Liga, Jugador, Arbitro
+
+# Crear liga
+liga = Liga("Liga Ibérica", temporada=1)
+
+# Registrar personas
+liga.registrar_arbitro(Arbitro("Marta", 40, "FIDE"))
+liga.inscribir_jugador(Jugador("Ana", 25))
+liga.inscribir_jugador(Jugador("Luis", 30))
+
+# Programar y jugar una partida
+partida = liga.programar_partida("Parchís", liga.arbitros[0])
+for jugador in liga.jugadores:
+    partida.añadir_jugador(jugador)
+
+partida.iniciar()
+partida.finalizar({liga.jugadores[0]: 150.0, liga.jugadores[1]: 90.0})
+
+print(liga.resumen())
+```
+
+---
+
+##  Conceptos de POO aplicados
+
+- **Abstracción** — `Persona` y `ElementoJuego` como clases abstractas con `@abstractmethod`
+- **Herencia simple** — `Jugador`, `Arbitro`, `Dado`, `Baraja`
+- **Herencia múltiple** — `JugadorArbitro(Jugador, Arbitro)` con resolución MRO
+- **Encapsulación** — atributos privados (`__id`, `__estado`, `__cartas`...) con `@property`
+- **Polimorfismo** — `presentarse()` y `obtener_rol()` con comportamiento distinto por clase
+

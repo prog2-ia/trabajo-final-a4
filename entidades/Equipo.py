@@ -15,7 +15,7 @@ class Equipo:
         else:
             print(f"El jugador {jugador.nombre} ya está en el equipo.")
 
-    def mostrar_plantilla(self) -> str:
+    def mostrar_plantilla(self):
         print(f"\n--- Equipo: {self.__nombre_equipo} ---")
         if self.__coach:
             print(f"Coach: {self.__coach.nombre} {self.__coach.apellido}")
@@ -24,9 +24,9 @@ class Equipo:
             print(f"- {j.nombre} ({j.puntos} pts)")
 
     @property
-    def nombre(self) -> str:
+    def nombre(self):
         return self.__nombre_equipo
 
     @property
-    def integrantes(self) -> str:
+    def integrantes(self):
         return self.__integrantes

@@ -8,6 +8,6 @@ para	conservar	la	competición.
 """
 
 if __name__ == '__main__':
-    from entidades.Jugador import Jugador
-    from entidades.Coach import Coach
-    from entidades.Juego import Juego
+    from Entities.Jugador import Jugador
+    from Entities.Arbitro import Coach
+    from Entities.Partida import Juego
