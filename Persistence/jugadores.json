@@ -2,15 +2,8 @@
   {
     "nombre": "Nico",
     "edad": 20,
-    "partidas_jugadas": 0,
-    "victorias": 0,
-    "puntuacion_total": 0.0
-  },
-  {
-    "nombre": "Ana",
-    "edad": 25,
-    "partidas_jugadas": 5,
-    "victorias": 3,
-    "puntuacion_total": 120.5
+    "partidas_jugadas": 1,
+    "victorias": 1,
+    "puntuacion_total": 100.0
   }
 ]
