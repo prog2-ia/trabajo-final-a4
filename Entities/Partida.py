@@ -1,5 +1,5 @@
-from Arbitro import Arbitro
-from Jugador import Jugador
+from Entities.Arbitro import Arbitro
+from Entities.Jugador import Jugador
 from typing import Union
 
 class Partida:

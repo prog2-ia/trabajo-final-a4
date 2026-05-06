@@ -1,4 +1,4 @@
-from Jugador import Jugador
+from Entities.Jugador import Jugador
 from typing import Union
 
 class Clasificacion:

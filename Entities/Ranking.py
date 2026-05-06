@@ -1,7 +1,7 @@
-from Jugador import Jugador
-from Arbitro import Arbitro
-from Partida import Partida
-from Clasificacion import Clasificacion
+from Entities.Jugador import Jugador
+from Entities.Arbitro import Arbitro
+from Entities.Partida import Partida
+from Entities.Clasificacion import Clasificacion
 
 
 class Liga:

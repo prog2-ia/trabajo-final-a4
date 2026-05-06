@@ -1,5 +1,5 @@
 import random
-from ElementoJuego import ElementoJuego
+from Entities.ElementoJuego import ElementoJuego
 
 
 class Baraja(ElementoJuego):
