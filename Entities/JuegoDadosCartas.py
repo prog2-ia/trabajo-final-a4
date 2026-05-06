@@ -1,6 +1,6 @@
-from Dado import Dado
-from Baraja import Baraja
-from Jugador import Jugador
+from Entities.Dado import Dado
+from Entities.Baraja import Baraja
+from Entities.Jugador import Jugador
 
 
 class JuegoDadosCarta:
