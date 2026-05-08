@@ -37,6 +37,7 @@ class Clasificacion:
         """
         if not self.__tabla:
             return None
+        #return max(self.__tabla, Jugador)
         return max(self.__tabla, key=lambda j: j.puntuacion_total)
 
     def __len__(self) -> int:

@@ -2,7 +2,6 @@ from Entities.Dado import Dado
 from Entities.Baraja import Baraja
 from Entities.Jugador import Jugador
 
-
 class JuegoDadosCarta:
     """
     Juego rápido: Dados + Carta.
