@@ -1,6 +1,7 @@
 from Entities.Jugador import Jugador
 from typing import Union
 
+
 class Clasificacion:
     """
     Gestiona el ranking de jugadores de la liga ordenado por puntuación.
@@ -21,17 +22,19 @@ class Clasificacion:
 
     def obtener_ranking(self) -> list[tuple[int, Jugador]]:
         """
-        Devuelve la lista ordenada de jugadores con su posición.
+        Devuelve la lista ordenada de jugadores con su puntuación.
 
-        :return: Lista de tuplas (posición, jugador) ordenadas por puntuación
+        :return: Lista de tuplas (puntos, jugador) ordenadas por puntuación
         """
         ordenados = sorted(self.__tabla,
                            key=lambda j: j.puntuacion_total,
                            reverse=True)
-        return [(pos + 1, jugador) for pos, jugador in enumerate(ordenados)]
+        return [(jugador.puntuacion_total, jugador) for jugador in ordenados]
 
     def obtener_lider(self) -> Union[Jugador, None]:
-        # Devuelve el jugador con mayor puntuación o None si está vacía.
+        """
+        Devuelve el jugador con mayor puntuación o None si está vacía.
+        """
         if not self.__tabla:
             return None
         return max(self.__tabla, key=lambda j: j.puntuacion_total)
