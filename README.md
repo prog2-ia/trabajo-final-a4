@@ -6,21 +6,40 @@ Proyecto de **Programación Orientada a Objetos** en Python para gestionar una l
 
 ---
 
-##  Estructura del proyecto
+## Estructura del proyecto
 
 ```
-liga_juegos_mesa/
-├── __init__.py
-├── persona.py
-├── elemento_juego.py
-├── jugador.py
-├── arbitro.py
-├── dado.py
-├── baraja.py
-├── jugador_arbitro.py
-├── partida.py
-├── clasificacion.py
-└── liga.py
+trabajo-final-a4/
+├── entidades/
+│   ├── __init__.py
+│   ├── persona.py
+│   ├── elemento_juego.py
+│   ├── jugador.py
+│   ├── arbitro.py
+│   ├── dado.py
+│   ├── baraja.py
+│   ├── jugador_arbitro.py
+│   ├── partida.py
+│   ├── clasificacion.py
+│   └── liga.py
+├── games/
+│   ├── __init__.py
+│   ├── JuegoDadosCartas.py
+│   └── JuegoPiedraPapelTijera.py
+├── persistence/
+│   ├── __init__.py
+│   ├── PersonaRepoJson.py
+│   ├── JugadorRepoJson.py
+│   ├── ArbitroRepoJson.py
+│   ├── JugadorArbitroRepoJson.py
+│   ├── persona.json
+│   ├── jugadores.json
+│   ├── arbitros.json
+│   └── jugador_arbitro.json
+├── Main.py
+├── menu.py
+├── requirements.txt
+└── README.md
 ```
 
 ---
