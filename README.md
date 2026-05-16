@@ -42,6 +42,18 @@ trabajo-final-a4/
 └── README.md
 ```
 
+## Instalación
+
+1. Clona el repositorio:
+   git clone https://github.com/prog2-ia/trabajo-final-a4
+
+2. (Opcional) Crea un entorno virtual:
+   python -m venv venv
+   source venv/bin/activate        # Mac/Linux
+   venv\Scripts\activate           # Windows
+
+3. Instala las dependencias:
+   pip install -r requirements.txt
 ---
 
 ##  Clases
