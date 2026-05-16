@@ -6,8 +6,7 @@ excepciones	por	partidas	inválidas,	resultados	contradictorios	o	inscripciones	
 se	mantendrán	actas	y	tablas	en	texto	junto	a	una	persistencia	binaria	completa	con	pickle
 para	conservar	la	competición.
 """
-
+from ui.menu import Menu
 if __name__ == '__main__':
-    from Entities.Jugador import Jugador
-    from Entities.Arbitro import Coach
-    from Entities.Partida import Juego
+    menu1= Menu()
+    menu1.ejecutar()

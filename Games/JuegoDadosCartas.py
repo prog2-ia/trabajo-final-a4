@@ -1,18 +1,16 @@
 from Entities.Dado import Dado
 from Entities.Baraja import Baraja
 from Entities.Jugador import Jugador
+from typing import Optional, Tuple
 
 class JuegoDadosCarta:
-    """
-    Juego rápido: Dados + Carta.
-    Cada jugador tira un dado y roba una carta, la suma de puntos determina el ganador.
-    """
-
+    #Juego rápido: Dados + Carta.
+    #Cada jugador tira un dado y roba una carta, la suma de puntos determina el ganador.
     def __init__(self):
         self._dado = Dado(6)
         self._baraja = Baraja()
 
-    def turno(self, jugador: Jugador) -> tuple[int, str, int]:
+    def turno(self, jugador: Jugador) -> Tuple[int, str, int]:
         """
         Ejecuta el turno de un jugador: tirar dado + roba carta.
         Devuelve: (valor_dado, carta, puntos_totales)
@@ -40,7 +38,7 @@ class JuegoDadosCarta:
 
         return 10
 
-    def obtener_ganador(self, j1: Jugador, j2: Jugador) -> tuple[Jugador | None, int, int]:
+    def obtener_ganador(self, j1: Jugador, j2: Jugador) -> Tuple[Optional[Jugador], int, int]:
         """
         Compara resultados de dos jugadores.
         Devuelve: (ganador, puntos_j1, puntos_j2)

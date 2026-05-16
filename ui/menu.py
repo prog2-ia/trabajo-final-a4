@@ -9,6 +9,7 @@ from Entities.Ranking import Liga
 from Entities.Dado import Dado
 from Games.JuegoDadosCartas import JuegoDadosCarta
 from Games.JuegoPiedraPapelTijera import JuegoPiedraPapelTijera
+from typing import Optional
 
 
 class Menu:
@@ -266,7 +267,7 @@ class Menu:
         print("\n" + self._liga.resumen())
 
     # ==================== UTILIDADES ====================
-    def _seleccionar_jugador(self, etiqueta: str) -> Jugador | None:
+    def _seleccionar_jugador(self, etiqueta: str) -> Optional[Jugador]:
         disponibles = self._liga.jugadores
         if not disponibles:
             return None
