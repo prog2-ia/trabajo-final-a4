@@ -40,7 +40,7 @@ class Menu:
 
     def _mostrar_encabezado(self) -> None:
         print("\n" + "=" * 60)
-        print(f"  🎲 {self._liga.nombre} | Temporada {self._liga.temporada}")
+        print(f" {self._liga.nombre} | Temporada {self._liga.temporada}")
         print("=" * 60)
 
     def _mostrar_menu_principal(self) -> None:
@@ -77,19 +77,19 @@ class Menu:
         print("\n--- NUEVO JUGADOR ---")
         nombre = input("  Nombre: ").strip()
         if not nombre:
-            print("  ✗ El nombre no puede estar vacío.")
+            print(" El nombre no puede estar vacío.")
             return
         edad = self._pedir_entero("  Edad (1-120): ", 1, 120)
         try:
             jugador = Jugador(nombre, edad)
             self._liga.inscribir_jugador(jugador)
-            print(f"\n  ✓ '{jugador.nombre}' inscrito (ID: {jugador.id})")
+            print(f"\n '{jugador.nombre}' inscrito (ID: {jugador.id})")
         except ValueError as e:
-            print(f"  ✗ Error: {e}")
+            print(f" Error: {e}")
 
     def _ver_jugadores(self) -> None:
         if not self._liga.jugadores:
-            print("\n  ✗ No hay jugadores.")
+            print("\n No hay jugadores.")
             return
         print("\n--- JUGADORES ---")
         for i, j in enumerate(self._liga.jugadores, 1):
@@ -97,7 +97,7 @@ class Menu:
 
     def _modificar_jugador(self) -> None:
         if not self._liga.jugadores:
-            print("  ✗ No hay jugadores.")
+            print(" No hay jugadores.")
             return
         jugador = self._seleccionar_jugador("modificar")
         if not jugador:
@@ -110,20 +110,20 @@ class Menu:
             nuevo = input("  Nuevo nombre: ").strip()
             if nuevo:
                 jugador.nombre = nuevo
-                print("  ✓ Actualizado.")
+                print(" Actualizado.")
         elif opcion == 2:
             jugador.edad = self._pedir_entero("  Nueva edad: ", 1, 120)
-            print("  ✓ Actualizado.")
+            print(" Actualizado.")
 
     def _eliminar_jugador(self) -> None:
         if not self._liga.jugadores:
-            print("  ✗ No hay jugadores.")
+            print(" No hay jugadores.")
             return
         jugador = self._seleccionar_jugador("eliminar")
         if not jugador:
             return
         self._liga.jugadores.remove(jugador)
-        print(f"  ✓ '{jugador.nombre}' eliminado.")
+        print(f" '{jugador.nombre}' eliminado.")
 
     # ==================== ÁRBITROS ====================
     def _submenu_arbitros(self) -> None:
@@ -145,22 +145,22 @@ class Menu:
 
     def _registrar_arbitro(self) -> None:
         print("\n--- NUEVO ÁRBITRO ---")
-        nombre = input("  Nombre: ").strip()
+        nombre = input(" Nombre: ").strip()
         if not nombre:
-            print("  ✗ El nombre no puede estar vacío.")
+            print(" El nombre no puede estar vacío.")
             return
         edad = self._pedir_entero("  Edad (1-120): ", 1, 120)
         cert = input("  Certificación: ").strip() or "FIDE"
         try:
             arbitro = Arbitro(nombre, edad, cert)
             self._liga.registrar_arbitro(arbitro)
-            print(f"\n  ✓ '{arbitro.nombre}' registrado")
+            print(f"\n '{arbitro.nombre}' registrado")
         except ValueError as e:
-            print(f"  ✗ Error: {e}")
+            print(f" Error: {e}")
 
     def _ver_arbitros(self) -> None:
         if not self._liga.arbitros:
-            print("\n  ✗ No hay árbitros.")
+            print("\n No hay árbitros.")
             return
         print("\n--- ÁRBITROS ---")
         for i, a in enumerate(self._liga.arbitros, 1):
@@ -168,29 +168,29 @@ class Menu:
 
     def _eliminar_arbitro(self) -> None:
         if not self._liga.arbitros:
-            print("  ✗ No hay árbitros.")
+            print(" No hay árbitros.")
             return
         arbitro = self._seleccionar_arbitro()
         if not arbitro:
             return
         self._liga.arbitros.remove(arbitro)
-        print(f"  ✓ '{arbitro.nombre}' eliminado.")
+        print(f" '{arbitro.nombre}' eliminado.")
 
     # ==================== CLASIFICACIÓN ====================
     def _ver_clasificacion(self) -> None:
         if not self._liga.jugadores:
-            print("\n  ✗ No hay jugadores.")
+            print("\n No hay jugadores.")
             return
         ranking = self._liga.obtener_clasificacion()
         print("\n--- CLASIFICACIÓN ---")
         for pos, (pts, j) in enumerate(ranking, 1):
             print(f"  [{pos}] {j.nombre} | {pts:.1f} pts | {j.porcentaje_victorias:.1f}% wins")
-        print(f"\n  🏆 Líder: {self._liga.clasificacion.obtener_lider().nombre}")
+        print(f"\n Líder: {self._liga.clasificacion.obtener_lider().nombre}")
 
     # ==================== JUEGOS ====================
     def _jugar_dados_carta(self) -> None:
         if len(self._liga.jugadores) < 2:
-            print("  ✗ Se necesitan 2 jugadores.")
+            print(" Se necesitan 2 jugadores.")
             return
         print("\n--- DADOS + CARTA ---")
         j1 = self._seleccionar_jugador("jugador 1")
@@ -198,7 +198,7 @@ class Menu:
             return
         disponibles = [j for j in self._liga.jugadores if j != j1]
         if not disponibles:
-            print("  ✗ No hay segundo jugador.")
+            print(" No hay segundo jugador.")
             return
         print("  Selecciona jugador 2:")
         for i, j in enumerate(disponibles, 1):
@@ -212,21 +212,21 @@ class Menu:
 
         print(f"\n  {j1.nombre}: {p1} vs {j2.nombre}: {p2}")
         if p1 > p2:
-            print(f"\n  🏆 GANADOR: {j1.nombre}")
+            print(f"\n GANADOR: {j1.nombre}")
             j1.actualizar_estadisticas(10, True)
             j2.actualizar_estadisticas(5, False)
         elif p2 > p1:
-            print(f"\n  🏆 GANADOR: {j2.nombre}")
+            print(f"\n GANADOR: {j2.nombre}")
             j2.actualizar_estadisticas(10, True)
             j1.actualizar_estadisticas(5, False)
         else:
-            print("\n  🤝 EMPATE")
+            print("\n EMPATE")
             j1.actualizar_estadisticas(3, False)
             j2.actualizar_estadisticas(3, False)
 
     def _jugar_piedra_papel_tijera(self) -> None:
         if len(self._liga.jugadores) < 2:
-            print("  ✗ Se necesitan 2 jugadores.")
+            print(" Se necesitan 2 jugadores.")
             return
         print("\n--- PIEDRA, PAPEL, TIJERA ---")
         j1 = self._seleccionar_jugador("jugador 1")
@@ -234,7 +234,7 @@ class Menu:
             return
         disponibles = [j for j in self._liga.jugadores if j != j1]
         if not disponibles:
-            print("  ✗ No hay segundo jugador.")
+            print(" No hay segundo jugador.")
             return
         print("  Selecciona jugador 2:")
         for i, j in enumerate(disponibles, 1):
@@ -250,15 +250,15 @@ class Menu:
         resultado = juego.calcular_ganador(op1, op2)
 
         if resultado == 1:
-            print(f"\n  🏆 GANADOR: {j1.nombre}")
+            print(f"\n GANADOR: {j1.nombre}")
             j1.actualizar_estadisticas(10, True)
             j2.actualizar_estadisticas(5, False)
         elif resultado == 2:
-            print(f"\n  🏆 GANADOR: {j2.nombre}")
+            print(f"\n GANADOR: {j2.nombre}")
             j2.actualizar_estadisticas(10, True)
             j1.actualizar_estadisticas(5, False)
         else:
-            print("\n  🤝 EMPATE")
+            print("\n EMPATE")
             j1.actualizar_estadisticas(3, False)
             j2.actualizar_estadisticas(3, False)
 
@@ -294,7 +294,7 @@ class Menu:
                     return valor
                 print(f"  Entre {minimo} y {maximo}.")
             except ValueError:
-                print("  ✗ Inválido.")
+                print(" Inválido.")
 
 
 if __name__ == "__main__":
