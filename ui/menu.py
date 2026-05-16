@@ -5,7 +5,7 @@ Gestión de jugadores, árbitros y juegos.
 
 from Entities.Jugador import Jugador
 from Entities.Arbitro import Arbitro
-from Entities.Ranking import Liga
+from Entities.Liga import Liga
 from Entities.Dado import Dado
 from Games.JuegoDadosCartas import JuegoDadosCarta
 from Games.JuegoPiedraPapelTijera import JuegoPiedraPapelTijera

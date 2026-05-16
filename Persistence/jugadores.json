@@ -4,6 +4,349 @@
     "edad": 20,
     "partidas_jugadas": 1,
     "victorias": 1,
-    "puntuacion_total": 100.0
+    "puntuacion_total": 100
+  },
+  {
+    "nombre": "Alba",
+    "edad": 19,
+    "partidas_jugadas": 5,
+    "victorias": 3,
+    "puntuacion_total": 340.5
+  },
+  {
+    "nombre": "Bruno",
+    "edad": 23,
+    "partidas_jugadas": 12,
+    "victorias": 7,
+    "puntuacion_total": 875
+  },
+  {
+    "nombre": "Clara",
+    "edad": 17,
+    "partidas_jugadas": 8,
+    "victorias": 2,
+    "puntuacion_total": 412
+  },
+  {
+    "nombre": "Dani",
+    "edad": 25,
+    "partidas_jugadas": 20,
+    "victorias": 15,
+    "puntuacion_total": 1850.5
+  },
+  {
+    "nombre": "Eva",
+    "edad": 22,
+    "partidas_jugadas": 3,
+    "victorias": 1,
+    "puntuacion_total": 210
+  },
+  {
+    "nombre": "Fran",
+    "edad": 30,
+    "partidas_jugadas": 35,
+    "victorias": 28,
+    "puntuacion_total": 3200
+  },
+  {
+    "nombre": "Gloria",
+    "edad": 18,
+    "partidas_jugadas": 6,
+    "victorias": 4,
+    "puntuacion_total": 520.5
+  },
+  {
+    "nombre": "Hugo",
+    "edad": 27,
+    "partidas_jugadas": 18,
+    "victorias": 10,
+    "puntuacion_total": 1430
+  },
+  {
+    "nombre": "Irene",
+    "edad": 21,
+    "partidas_jugadas": 9,
+    "victorias": 5,
+    "puntuacion_total": 670
+  },
+  {
+    "nombre": "Joel",
+    "edad": 16,
+    "partidas_jugadas": 2,
+    "victorias": 0,
+    "puntuacion_total": 95
+  },
+  {
+    "nombre": "Karen",
+    "edad": 24,
+    "partidas_jugadas": 14,
+    "victorias": 9,
+    "puntuacion_total": 1120.5
+  },
+  {
+    "nombre": "Leo",
+    "edad": 29,
+    "partidas_jugadas": 40,
+    "victorias": 31,
+    "puntuacion_total": 4050
+  },
+  {
+    "nombre": "Luna",
+    "edad": 20,
+    "partidas_jugadas": 7,
+    "victorias": 3,
+    "puntuacion_total": 480
+  },
+  {
+    "nombre": "Mario",
+    "edad": 33,
+    "partidas_jugadas": 55,
+    "victorias": 44,
+    "puntuacion_total": 5600.5
+  },
+  {
+    "nombre": "Nora",
+    "edad": 26,
+    "partidas_jugadas": 11,
+    "victorias": 6,
+    "puntuacion_total": 790
+  },
+  {
+    "nombre": "Omar",
+    "edad": 19,
+    "partidas_jugadas": 4,
+    "victorias": 2,
+    "puntuacion_total": 310
+  },
+  {
+    "nombre": "Paula",
+    "edad": 28,
+    "partidas_jugadas": 22,
+    "victorias": 17,
+    "puntuacion_total": 2100
+  },
+  {
+    "nombre": "Quique",
+    "edad": 31,
+    "partidas_jugadas": 48,
+    "victorias": 36,
+    "puntuacion_total": 4780.5
+  },
+  {
+    "nombre": "Rita",
+    "edad": 23,
+    "partidas_jugadas": 13,
+    "victorias": 8,
+    "puntuacion_total": 995
+  },
+  {
+    "nombre": "Samuel",
+    "edad": 17,
+    "partidas_jugadas": 3,
+    "victorias": 1,
+    "puntuacion_total": 185
+  },
+  {
+    "nombre": "Tania",
+    "edad": 25,
+    "partidas_jugadas": 16,
+    "victorias": 11,
+    "puntuacion_total": 1340
+  },
+  {
+    "nombre": "Ulises",
+    "edad": 32,
+    "partidas_jugadas": 60,
+    "victorias": 50,
+    "puntuacion_total": 6200
+  },
+  {
+    "nombre": "Valeria",
+    "edad": 21,
+    "partidas_jugadas": 10,
+    "victorias": 6,
+    "puntuacion_total": 730.5
+  },
+  {
+    "nombre": "Willy",
+    "edad": 27,
+    "partidas_jugadas": 25,
+    "victorias": 18,
+    "puntuacion_total": 2450
+  },
+  {
+    "nombre": "Xenia",
+    "edad": 18,
+    "partidas_jugadas": 5,
+    "victorias": 2,
+    "puntuacion_total": 290
+  },
+  {
+    "nombre": "Yago",
+    "edad": 24,
+    "partidas_jugadas": 19,
+    "victorias": 13,
+    "puntuacion_total": 1560
+  },
+  {
+    "nombre": "Zoe",
+    "edad": 22,
+    "partidas_jugadas": 8,
+    "victorias": 4,
+    "puntuacion_total": 560
+  },
+  {
+    "nombre": "Aitor",
+    "edad": 26,
+    "partidas_jugadas": 30,
+    "victorias": 22,
+    "puntuacion_total": 2900.5
+  },
+  {
+    "nombre": "Blanca",
+    "edad": 19,
+    "partidas_jugadas": 6,
+    "victorias": 3,
+    "puntuacion_total": 390
+  },
+  {
+    "nombre": "Cesc",
+    "edad": 34,
+    "partidas_jugadas": 70,
+    "victorias": 58,
+    "puntuacion_total": 7350
+  },
+  {
+    "nombre": "Diana",
+    "edad": 20,
+    "partidas_jugadas": 9,
+    "victorias": 5,
+    "puntuacion_total": 620.5
+  },
+  {
+    "nombre": "Edu",
+    "edad": 28,
+    "partidas_jugadas": 27,
+    "victorias": 19,
+    "puntuacion_total": 2680
+  },
+  {
+    "nombre": "Flor",
+    "edad": 16,
+    "partidas_jugadas": 1,
+    "victorias": 0,
+    "puntuacion_total": 45
+  },
+  {
+    "nombre": "Guille",
+    "edad": 23,
+    "partidas_jugadas": 15,
+    "victorias": 10,
+    "puntuacion_total": 1200
+  },
+  {
+    "nombre": "Hana",
+    "edad": 21,
+    "partidas_jugadas": 7,
+    "victorias": 4,
+    "puntuacion_total": 510
+  },
+  {
+    "nombre": "Ian",
+    "edad": 29,
+    "partidas_jugadas": 33,
+    "victorias": 25,
+    "puntuacion_total": 3100.5
+  },
+  {
+    "nombre": "Jana",
+    "edad": 17,
+    "partidas_jugadas": 4,
+    "victorias": 1,
+    "puntuacion_total": 230
+  },
+  {
+    "nombre": "Kike",
+    "edad": 25,
+    "partidas_jugadas": 21,
+    "victorias": 14,
+    "puntuacion_total": 1750
+  },
+  {
+    "nombre": "Laia",
+    "edad": 30,
+    "partidas_jugadas": 42,
+    "victorias": 33,
+    "puntuacion_total": 4300
+  },
+  {
+    "nombre": "Max",
+    "edad": 22,
+    "partidas_jugadas": 11,
+    "victorias": 7,
+    "puntuacion_total": 840.5
+  },
+  {
+    "nombre": "Noa",
+    "edad": 18,
+    "partidas_jugadas": 5,
+    "victorias": 2,
+    "puntuacion_total": 320
+  },
+  {
+    "nombre": "Oriol",
+    "edad": 27,
+    "partidas_jugadas": 28,
+    "victorias": 20,
+    "puntuacion_total": 2500
+  },
+  {
+    "nombre": "Pau",
+    "edad": 24,
+    "partidas_jugadas": 17,
+    "victorias": 11,
+    "puntuacion_total": 1380
+  },
+  {
+    "nombre": "Queralt",
+    "edad": 20,
+    "partidas_jugadas": 6,
+    "victorias": 3,
+    "puntuacion_total": 415
+  },
+  {
+    "nombre": "Roc",
+    "edad": 32,
+    "partidas_jugadas": 52,
+    "victorias": 41,
+    "puntuacion_total": 5100
+  },
+  {
+    "nombre": "Sara",
+    "edad": 19,
+    "partidas_jugadas": 8,
+    "victorias": 4,
+    "puntuacion_total": 580.5
+  },
+  {
+    "nombre": "Txus",
+    "edad": 26,
+    "partidas_jugadas": 23,
+    "victorias": 16,
+    "puntuacion_total": 2050
+  },
+  {
+    "nombre": "Unai",
+    "edad": 21,
+    "partidas_jugadas": 10,
+    "victorias": 6,
+    "puntuacion_total": 710
+  },
+  {
+    "nombre": "Vega",
+    "edad": 23,
+    "partidas_jugadas": 14,
+    "victorias": 9,
+    "puntuacion_total": 1050.5
   }
 ]
