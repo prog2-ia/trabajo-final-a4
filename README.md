@@ -208,31 +208,6 @@ classDiagram
 
 ---
 
-##  Uso rápido
-
-```python
-from liga_juegos_mesa import Liga, Jugador, Arbitro
-
-# Crear liga
-liga = Liga("Liga Ibérica", temporada=1)
-
-# Registrar personas
-liga.registrar_arbitro(Arbitro("Marta", 40, "FIDE"))
-liga.inscribir_jugador(Jugador("Ana", 25))
-liga.inscribir_jugador(Jugador("Luis", 30))
-
-# Programar y jugar una partida
-partida = liga.programar_partida("Parchís", liga.arbitros[0])
-for jugador in liga.jugadores:
-    partida.añadir_jugador(jugador)
-
-partida.iniciar()
-partida.finalizar({liga.jugadores[0]: 150.0, liga.jugadores[1]: 90.0})
-
-print(liga.resumen())
-```
-
----
 
 ##  Conceptos de POO aplicados
 
