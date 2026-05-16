@@ -1,6 +1,6 @@
-"""
-Menú principal del sistema de Liga de Juegos de Mesa.
-Gestión de jugadores, árbitros y juegos.
+""""
+Menu principal del sistema de Liga de Juegos de Mesa.
+Gestion de jugadores, arbitros y juegos.
 """
 
 from Entities.Jugador import Jugador
@@ -9,6 +9,8 @@ from Entities.Liga import Liga
 from Entities.Dado import Dado
 from Games.JuegoDadosCartas import JuegoDadosCarta
 from Games.JuegoPiedraPapelTijera import JuegoPiedraPapelTijera
+from Games.BlackJack import BlackJack
+from Games.JuegoApuestaDados import JuegoApuestaDados
 from typing import Optional
 
 
@@ -21,10 +23,10 @@ class Menu:
         while True:
             self._mostrar_encabezado()
             self._mostrar_menu_principal()
-            opcion = self._pedir_entero("Selecciona tu opción: ", 0, 6)
+            opcion = self._pedir_entero("Selecciona tu opcion: ", 0, 8)
 
             if opcion == 0:
-                print("\n¡Hasta luego! Gracias por jugar.\n")
+                print("\nHasta luego! Gracias por jugar.\n")
                 return
             elif opcion == 1:
                 self._submenu_jugadores()
@@ -38,25 +40,31 @@ class Menu:
                 self._jugar_piedra_papel_tijera()
             elif opcion == 6:
                 self._ver_resumen_liga()
+            elif opcion == 7:
+                self._jugar_blackjack()
+            elif opcion == 8:
+                self._jugar_apuesta_dados()
 
     def _mostrar_encabezado(self) -> None:
         print("\n" + "=" * 60)
         print(f" {self._liga.nombre} | Temporada {self._liga.temporada}")
         print("=" * 60)
-
-    def _mostrar_menu_principal(self) -> None:
+    @staticmethod
+    def _mostrar_menu_principal() -> None:
         print("[1] Gestionar Jugadores")
-        print("[2] Gestionar Árbitros")
-        print("[3] Ver Clasificación")
+        print("[2] Gestionar Arbitros")
+        print("[3] Ver Clasificacion")
         print("[4] Jugar: Dados + Carta")
         print("[5] Jugar: Piedra, Papel, Tijera")
         print("[6] Ver Resumen de Liga")
+        print("[7] Jugar: Blackjack")
+        print("[8] Jugar: Apuesta con Dados")
         print("[0] Salir")
 
     # ==================== JUGADORES ====================
     def _submenu_jugadores(self) -> None:
         while True:
-            print("\n--- GESTIÓN DE JUGADORES ---")
+            print("\n--- GESTION DE JUGADORES ---")
             print(f"[1] Inscribir ({len(self._liga.jugadores)})")
             print("[2] Ver todos")
             print("[3] Modificar")
@@ -78,7 +86,7 @@ class Menu:
         print("\n--- NUEVO JUGADOR ---")
         nombre = input("  Nombre: ").strip()
         if not nombre:
-            print(" El nombre no puede estar vacío.")
+            print(" El nombre no puede estar vacio.")
             return
         edad = self._pedir_entero("  Edad (1-120): ", 1, 120)
         try:
@@ -126,10 +134,10 @@ class Menu:
         self._liga.jugadores.remove(jugador)
         print(f" '{jugador.nombre}' eliminado.")
 
-    # ==================== ÁRBITROS ====================
+    # ==================== ARBITROS ====================
     def _submenu_arbitros(self) -> None:
         while True:
-            print("\n--- GESTIÓN DE ÁRBITROS ---")
+            print("\n--- GESTION DE ARBITROS ---")
             print(f"[1] Registrar ({len(self._liga.arbitros)})")
             print("[2] Ver todos")
             print("[3] Eliminar")
@@ -145,13 +153,13 @@ class Menu:
                 self._eliminar_arbitro()
 
     def _registrar_arbitro(self) -> None:
-        print("\n--- NUEVO ÁRBITRO ---")
+        print("\n--- NUEVO ARBITRO ---")
         nombre = input(" Nombre: ").strip()
         if not nombre:
-            print(" El nombre no puede estar vacío.")
+            print(" El nombre no puede estar vacio.")
             return
         edad = self._pedir_entero("  Edad (1-120): ", 1, 120)
-        cert = input("  Certificación: ").strip() or "FIDE"
+        cert = input("  Certificacion: ").strip() or "FIDE"
         try:
             arbitro = Arbitro(nombre, edad, cert)
             self._liga.registrar_arbitro(arbitro)
@@ -161,15 +169,15 @@ class Menu:
 
     def _ver_arbitros(self) -> None:
         if not self._liga.arbitros:
-            print("\n No hay árbitros.")
+            print("\n No hay arbitros.")
             return
-        print("\n--- ÁRBITROS ---")
+        print("\n--- ARBITROS ---")
         for i, a in enumerate(self._liga.arbitros, 1):
             print(f"  [{i}] {a.nombre} | E:{a.edad} | Cert:{a.certificacion}")
 
     def _eliminar_arbitro(self) -> None:
         if not self._liga.arbitros:
-            print(" No hay árbitros.")
+            print(" No hay arbitros.")
             return
         arbitro = self._seleccionar_arbitro()
         if not arbitro:
@@ -177,16 +185,16 @@ class Menu:
         self._liga.arbitros.remove(arbitro)
         print(f" '{arbitro.nombre}' eliminado.")
 
-    # ==================== CLASIFICACIÓN ====================
+    # ==================== CLASIFICACION ====================
     def _ver_clasificacion(self) -> None:
         if not self._liga.jugadores:
             print("\n No hay jugadores.")
             return
         ranking = self._liga.obtener_clasificacion()
-        print("\n--- CLASIFICACIÓN ---")
+        print("\n--- CLASIFICACION ---")
         for pos, (pts, j) in enumerate(ranking, 1):
             print(f"  [{pos}] {j.nombre} | {pts:.1f} pts | {j.porcentaje_victorias:.1f}% wins")
-        print(f"\n Líder: {self._liga.clasificacion.obtener_lider().nombre}")
+        print(f"\n Lider: {self._liga.clasificacion.obtener_lider().nombre}")
 
     # ==================== JUEGOS ====================
     def _jugar_dados_carta(self) -> None:
@@ -204,7 +212,7 @@ class Menu:
         print("  Selecciona jugador 2:")
         for i, j in enumerate(disponibles, 1):
             print(f"    [{i}] {j.nombre}")
-        idx = self._pedir_entero("  Número: ", 1, len(disponibles))
+        idx = self._pedir_entero("  Numero: ", 1, len(disponibles))
         j2 = disponibles[idx - 1]
 
         juego = JuegoDadosCarta()
@@ -240,7 +248,7 @@ class Menu:
         print("  Selecciona jugador 2:")
         for i, j in enumerate(disponibles, 1):
             print(f"    [{i}] {j.nombre}")
-        idx = self._pedir_entero("  Número: ", 1, len(disponibles))
+        idx = self._pedir_entero("  Numero: ", 1, len(disponibles))
         j2 = disponibles[idx - 1]
 
         juego = JuegoPiedraPapelTijera()
@@ -263,6 +271,39 @@ class Menu:
             j1.actualizar_estadisticas(3, False)
             j2.actualizar_estadisticas(3, False)
 
+    def _jugar_blackjack(self) -> None:
+        # Un solo jugador contra la banca
+        if not self._liga.jugadores:
+            print(" No hay jugadores.")
+            return
+        jugador = self._seleccionar_jugador("jugador")
+        if not jugador:
+            return
+        juego = BlackJack()
+        juego.jugar(jugador)
+
+    def _jugar_apuesta_dados(self) -> None:
+        # Dos jugadores apuestan a la suma de dos dados
+        if len(self._liga.jugadores) < 2:
+            print(" Se necesitan 2 jugadores.")
+            return
+        print("\n--- APUESTA CON DADOS ---")
+        j1 = self._seleccionar_jugador("jugador 1")
+        if not j1:
+            return
+        disponibles = [j for j in self._liga.jugadores if j != j1]
+        if not disponibles:
+            print(" No hay segundo jugador.")
+            return
+        print("  Selecciona jugador 2:")
+        for i, j in enumerate(disponibles, 1):
+            print(f"    [{i}] {j.nombre}")
+        idx = self._pedir_entero("  Numero: ", 1, len(disponibles))
+        j2 = disponibles[idx - 1]
+
+        juego = JuegoApuestaDados()
+        juego.jugar(j1, j2)
+
     def _ver_resumen_liga(self) -> None:
         print("\n" + self._liga.resumen())
 
@@ -274,7 +315,7 @@ class Menu:
         print(f"\n  {etiqueta}:")
         for i, j in enumerate(disponibles, 1):
             print(f"    [{i}] {j.nombre}")
-        idx = self._pedir_entero("  Número: ", 1, len(disponibles))
+        idx = self._pedir_entero("  Numero: ", 1, len(disponibles))
         return disponibles[idx - 1]
 
     def _seleccionar_arbitro(self):
@@ -284,10 +325,10 @@ class Menu:
         print(f"\n  Selecciona:")
         for i, a in enumerate(disponibles, 1):
             print(f"    [{i}] {a.nombre}")
-        idx = self._pedir_entero("  Número: ", 1, len(disponibles))
+        idx = self._pedir_entero("  Numero: ", 1, len(disponibles))
         return disponibles[idx - 1]
-
-    def _pedir_entero(self, mensaje: str, minimo: int, maximo: int) -> int:
+    @staticmethod
+    def _pedir_entero( mensaje: str, minimo: int, maximo: int) -> int:
         while True:
             try:
                 valor = int(input(mensaje))
@@ -295,7 +336,7 @@ class Menu:
                     return valor
                 print(f"  Entre {minimo} y {maximo}.")
             except ValueError:
-                print(" Inválido.")
+                print(" Invalido.")
 
 
 if __name__ == "__main__":

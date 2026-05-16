@@ -39,7 +39,7 @@ class Jugador(Persona):
         return self.__puntuacion_total >= otro.puntuacion_total
 
     def to_dict(self) -> dict:
-        """Serializa el jugador a diccionario."""
+        #Serializa el jugador a diccionario.
         return {
             "nombre": self.nombre,
             "edad": self.edad,
