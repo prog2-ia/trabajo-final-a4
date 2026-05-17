@@ -12,6 +12,7 @@ from Games.JuegoPiedraPapelTijera import JuegoPiedraPapelTijera
 from Games.BlackJack import BlackJack
 from Games.JuegoApuestaDados import JuegoApuestaDados
 from typing import Optional
+from Entities.JugadorArbitro import JugadorArbitro
 
 
 class Menu:
@@ -23,7 +24,7 @@ class Menu:
         while True:
             self._mostrar_encabezado()
             self._mostrar_menu_principal()
-            opcion = self._pedir_entero("Selecciona tu opcion: ", 0, 8)
+            opcion = self._pedir_entero("Selecciona tu opcion: ", 0, 9)
 
             if opcion == 0:
                 print("\nHasta luego! Gracias por jugar.\n")
@@ -44,6 +45,8 @@ class Menu:
                 self._jugar_blackjack()
             elif opcion == 8:
                 self._jugar_apuesta_dados()
+            elif opcion == 9:
+                self._submenu_jugador_arbitro()
 
     def _mostrar_encabezado(self) -> None:
         print("\n" + "=" * 60)
@@ -59,6 +62,7 @@ class Menu:
         print("[6] Ver Resumen de Liga")
         print("[7] Jugar: Blackjack")
         print("[8] Jugar: Apuesta con Dados")
+        print("[9] Gestionar Jugador/Arbitro")
         print("[0] Salir")
 
     # ==================== JUGADORES ====================
@@ -306,6 +310,101 @@ class Menu:
 
     def _ver_resumen_liga(self) -> None:
         print("\n" + self._liga.resumen())
+
+    # ==================== JUGADOR/ARBITROS ====================
+    def _submenu_jugador_arbitro(self) -> None:
+        while True:
+            print("\n--- GESTION DE JUGADOR/ARBITROS ---")
+            print(f"[1] Registrar ({len(self._liga.jugadores_arbitros)})")
+            print("[2] Ver todos")
+            print("[3] Modificar")
+            print("[4] Eliminar")
+            print("[0] Volver")
+            opcion = self._pedir_entero("Selecciona: ", 0, 4)
+            if opcion == 0:
+                return
+            elif opcion == 1:
+                self._registrar_jugador_arbitro()
+            elif opcion == 2:
+                self._ver_jugador_arbitro()
+            elif opcion == 3:
+                self._modificar_jugador_arbitro()
+            elif opcion == 4:
+                self._eliminar_jugador_arbitro()
+
+    def _registrar_jugador_arbitro(self) -> None:
+        print("\n--- NUEVO JUGADOR/ARBITRO ---")
+        nombre = input("  Nombre: ").strip()
+        if not nombre:
+            print(" El nombre no puede estar vacio.")
+            return
+        edad = self._pedir_entero("  Edad (1-120): ", 1, 120)
+        cert = input("  Certificacion: ").strip() or "FIDE"
+        try:
+            jugador_arbitro = JugadorArbitro(nombre, edad, cert)
+            self._liga.registrar_jugador_arbitro(jugador_arbitro)
+            print(f"\n '{jugador_arbitro.nombre}' registrado como Jugador/Arbitro (ID: {jugador_arbitro.id})")
+        except ValueError as e:
+            print(f" Error: {e}")
+
+    def _ver_jugador_arbitro(self) -> None:
+        if not self._liga.jugadores_arbitros:
+            print("\n No hay jugadores/arbitros.")
+            return
+        print("\n--- JUGADORES/ARBITROS ---")
+        for i, ja in enumerate(self._liga.jugadores_arbitros, 1):
+            print(
+                f"  [{i}] {ja.nombre} | E:{ja.edad} | P:{ja.partidas_jugadas} | V:{ja.victorias} | PA:{ja.partidas_arbitradas}")
+
+    def _modificar_jugador_arbitro(self) -> None:
+        if not self._liga.jugadores_arbitros:
+            print(" No hay jugadores/arbitros.")
+            return
+        jugador_arbitro = self._seleccionar_jugador_arbitro("modificar")
+        if not jugador_arbitro:
+            return
+        print(f"\n--- MODIFICAR: {jugador_arbitro.nombre} ---")
+        print("[1] Nombre")
+        print("[2] Edad")
+        print("[3] Certificacion")
+        opcion = self._pedir_entero("Selecciona: ", 0, 3)
+        if opcion == 1:
+            nuevo = input("  Nuevo nombre: ").strip()
+            if nuevo:
+                jugador_arbitro.nombre = nuevo
+                print(" Actualizado.")
+        elif opcion == 2:
+            jugador_arbitro.edad = self._pedir_entero("  Nueva edad: ", 1, 120)
+            print(" Actualizado.")
+        elif opcion == 3:
+            nuevo_cert = input("  Nueva certificacion: ").strip()
+            if nuevo_cert:
+                jugador_arbitro.certificacion = nuevo_cert
+                print(" Actualizado.")
+
+    def _eliminar_jugador_arbitro(self) -> None:
+        if not self._liga.jugadores_arbitros:
+            print(" No hay jugadores/arbitros.")
+            return
+        jugador_arbitro = self._seleccionar_jugador_arbitrol("eliminar")
+        if not jugador_arbitro:
+            return
+        self._liga.jugadores_arbitros.remove(jugador_arbitro)
+        if jugador_arbitro in self._liga.jugadores:
+            self._liga.jugadores.remove(jugador_arbitro)
+        if jugador_arbitro in self._liga.arbitros:
+            self._liga.arbitros.remove(jugador_arbitro)
+        print(f" '{jugador_arbitro.nombre}' eliminado.")
+
+    def _seleccionar_jugador_arbitrol(self, etiqueta: str):
+        disponibles = self._liga.jugadores_arbitros
+        if not disponibles:
+            return None
+        print(f"\n  {etiqueta}:")
+        for i, ja in enumerate(disponibles, 1):
+            print(f"    [{i}] {ja.nombre}")
+        idx = self._pedir_entero("  Numero: ", 1, len(disponibles))
+        return disponibles[idx - 1]
 
     # ==================== UTILIDADES ====================
     def _seleccionar_jugador(self, etiqueta: str) -> Optional[Jugador]:
