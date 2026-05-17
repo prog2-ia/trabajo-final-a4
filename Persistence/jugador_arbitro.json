@@ -7,5 +7,115 @@
     "partidas_jugadas_jugador": 10,
     "victorias": 4,
     "puntuacion_total": 85.0
+  },
+
+  {
+    "nombre": "Minerva",
+    "edad": 52,
+    "certificacion": "Nivel 3",
+    "partidas_arbitradas": 8,
+    "partidas_jugadas_jugador": 12,
+    "victorias": 8,
+    "puntuacion_total": 100.5
+  },
+
+  {
+    "nombre": "Armando",
+    "edad": 33,
+    "certificacion": "Nivel 1",
+    "partidas_arbitradas": 2,
+    "partidas_jugadas_jugador": 4,
+    "victorias": 1,
+    "puntuacion_total": 20.0
+  },
+
+  {
+    "nombre": "Felipe",
+    "edad": 60,
+    "certificacion": "Nivel Pro",
+    "partidas_arbitradas": 20,
+    "partidas_jugadas_jugador": 15,
+    "victorias": 10,
+    "puntuacion_total": 120.0
+  },
+
+  {
+    "nombre": "Jimena",
+    "edad": 50,
+    "certificacion": "Nivel Pro",
+    "partidas_arbitradas": 14,
+    "partidas_jugadas_jugador": 10,
+    "victorias": 6,
+    "puntuacion_total": 70.0
+  },
+
+  {
+    "nombre": "Martina",
+    "edad": 22,
+    "certificacion": "Nivel 2",
+    "partidas_arbitradas": 8,
+    "partidas_jugadas_jugador": 8,
+    "victorias": 5,
+    "puntuacion_total": 50.0
+  },
+
+  {
+    "nombre": "Maribel",
+    "edad": 45,
+    "certificacion": "Nivel 2",
+    "partidas_arbitradas": 10,
+    "partidas_jugadas_jugador": 6,
+    "victorias": 4,
+    "puntuacion_total": 65.0
+  },
+
+  {
+    "nombre": "Malena",
+    "edad": 35,
+    "certificacion": "Nivel 3",
+    "partidas_arbitradas": 9,
+    "partidas_jugadas_jugador": 15,
+    "victorias": 9,
+    "puntuacion_total": 95.0
+  },
+
+  {
+    "nombre": "Manel",
+    "edad": 24,
+    "certificacion": "Nivel 1",
+    "partidas_arbitradas": 3,
+    "partidas_jugadas_jugador": 5,
+    "victorias": 2,
+    "puntuacion_total": 30.0
+  },
+
+  {
+    "nombre": "Alejandro",
+    "edad": 46,
+    "certificacion": "Nivel 3",
+    "partidas_arbitradas": 7,
+    "partidas_jugadas_jugador": 11,
+    "victorias": 9,
+    "puntuacion_total": 95.0
+  },
+
+  {
+    "nombre": "Sofia",
+    "edad": 20,
+    "certificacion": "Nivel 1",
+    "partidas_arbitradas": 2,
+    "partidas_jugadas_jugador": 5,
+    "victorias": 3,
+    "puntuacion_total": 35.0
+  },
+
+  {
+    "nombre": "Juan Miguel",
+    "edad": 70,
+    "certificacion": "Nivel Pro",
+    "partidas_arbitradas": 20,
+    "partidas_jugadas_jugador": 30,
+    "victorias": 25,
+    "puntuacion_total": 250.0
   }
 ]

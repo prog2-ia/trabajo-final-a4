@@ -298,5 +298,17 @@
     "edad": 44,
     "certificacion": "Nivel 3",
     "partidas_arbitradas": 178
+  },
+  {
+    "nombre": "Rebeca",
+    "edad": 29,
+    "certificacion": "Nivel 1",
+    "partidas_arbitradas": 235
+  },
+  {
+    "nombre": "Roberto",
+    "edad": 45,
+    "certificacion": "Nivel 2",
+    "partidas_arbitradas": 78
   }
 ]
