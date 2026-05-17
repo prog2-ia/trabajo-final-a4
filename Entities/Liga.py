@@ -2,6 +2,7 @@ from Entities.Jugador import Jugador
 from Entities.Arbitro import Arbitro
 from Entities.Partida import Partida
 from Entities.Clasificacion import Clasificacion
+from Entities.JugadorArbitro import JugadorArbitro
 
 
 class Liga:
@@ -19,6 +20,7 @@ class Liga:
 
         self.jugadores: list[Jugador] = []
         self.arbitros: list[Arbitro] = []
+        self.jugadores_arbitros: list[JugadorArbitro] = []
         self.partidas: list[Partida] = []
         self.clasificacion: Clasificacion = Clasificacion()
 
@@ -42,6 +44,20 @@ class Liga:
         if arbitro in self.arbitros:
             raise ValueError(f"{arbitro.nombre} ya está registrado como árbitro.")
         self.arbitros.append(arbitro)
+
+    def registrar_jugador_arbitro(self, jugador_arbitro: JugadorArbitro) -> None:
+        """
+        Registra un jugador/árbitro en la liga.
+
+        :raises ValueError: Si ya estaba registrado
+        """
+        if jugador_arbitro in self.jugadores_arbitros:
+            raise ValueError(f"{jugador_arbitro.nombre} ya está registrado como jugador/árbitro.")
+        self.jugadores_arbitros.append(jugador_arbitro)
+        # También lo inscribimos como jugador y registramos como árbitro
+        self.jugadores.append(jugador_arbitro)
+        self.arbitros.append(jugador_arbitro)
+        self.clasificacion.registrar_jugador(jugador_arbitro)
 
     def programar_partida(self, juego: str, arbitro: Arbitro) -> Partida:
         """
