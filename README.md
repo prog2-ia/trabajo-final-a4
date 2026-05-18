@@ -25,7 +25,9 @@ trabajo-final-a4/
 ├── games/
 │   ├── __init__.py
 │   ├── JuegoDadosCartas.py
-│   └── JuegoPiedraPapelTijera.py
+│   ├── JuegoPiedraPapelTijera.py
+│   ├── BlackJack.py
+│   └── JuegoApuestaDados.py
 ├── persistence/
 │   ├── __init__.py
 │   ├── PersonaRepoJson.py
@@ -36,8 +38,13 @@ trabajo-final-a4/
 │   ├── jugadores.json
 │   ├── arbitros.json
 │   └── jugador_arbitro.json
+├── ui/
+│   ├── __init__.py
+│   └── menu.py
+├── test/
+│   ├── __init__.py
+│   └── prueba1.py
 ├── Main.py
-├── menu.py
 ├── requirements.txt
 └── README.md
 ```
